@@ -117,7 +117,7 @@ export default function HeroSection() {
 
         {/* RIGHT COLUMN: Illustration / Mockups */}
         <div className="relative w-full flex justify-center lg:justify-end">
-          <div className="relative w-[80%] max-w-[500px] sm:max-w-[640px] lg:max-w-none aspect-[4/3] lg:aspect-[16/10]">
+          <div className="relative w-[85%] max-w-[500px] sm:max-w-[640px] lg:max-w-none aspect-[4/3] lg:aspect-[16/10]">
             {/* Main Large Mockup */}
             <div
               ref={mainImageRef}
@@ -135,7 +135,7 @@ export default function HeroSection() {
               ref={addFloatingCardRef}
               className="
                 absolute
-                top-10 sm:top-16 lg:top-12
+                top-14 sm:top-16 lg:top-16
                 left-[-6%] lg:left-[-6%]
                 z-30
                 w-40 sm:w-60 lg:w-[260px]
@@ -156,8 +156,8 @@ export default function HeroSection() {
               ref={addFloatingCardRef}
               className="
                 absolute
-                top-[33%]
-                lg:top-[35%]
+                top-[38%]
+                lg:top-[38%]
                 right-[-6%] lg:right-[-6%]
                 z-30
                 w-40 sm:w-60 lg:w-[260px]
@@ -178,7 +178,7 @@ export default function HeroSection() {
               ref={addFloatingCardRef}
               className="
                 absolute
-                bottom-[-1%] sm:bottom-5 lg:bottom-[-2%]
+                bottom-[-8%] sm:bottom-5 lg:bottom-[-8%]
                 left-1/8 lg:left-1/6
                 z-10
                 w-40 sm:w-60 lg:w-[260px]
