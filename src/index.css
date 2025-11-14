@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --primary-blue: #2a2f9a;
+  --primary-dark: #121440;
+  --highlight-green: #0e991d;
+  --green-accent: #0e991d;
+}
+
+body {
+  font-family: "Maven Pro", sans-serif;
+}
+
+@theme {
+  --color-primary-blue: #2a2f9a;
+  --color-primary-dark: #121440;
+  --color-highlight-green: #0e991d;
+  --color-green-accent-500: #0e991d;
+  --color-primary-blue-900: #1e1e7c;
+  --color-grey-color-500: #6b7280;
+  
+  --bg-bg-circles: url('/Images/bg-circles.png');
+  --shadow-features-card: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* You can remove these custom classes as they're now in the theme */
+.text-primary-dark {
+  color: var(--primary-dark);
+}
+
+.text-highlight-green {
+  color: var(--highlight-green);
+}
+
+.text-green-accent-500 {
+  color: var(--green-accent);
+}
+
+.bg-highlight-green {
+  background-color: var(--highlight-green);
+}
