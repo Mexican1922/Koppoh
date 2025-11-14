@@ -17,7 +17,7 @@ export default function FeaturesSection() {
 
       {/* Circular Pattern Background - Hidden on small screens, visible on medium+ */}
       <div
-        className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-screen h-[1200px] bg-cover bg-center opacity-80 z-10 bg-[url('/Images/bg-circles.png')]"
+        className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-screen h-[1200px] bg-center opacity-60 z-10 bg-[url('/Images/bg-circles.png')]"
       ></div>
 
       {/* Content */}

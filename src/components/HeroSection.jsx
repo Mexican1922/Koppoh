@@ -78,7 +78,7 @@ export default function HeroSection() {
         <img
           src={stripPattern}
           alt="Strip pattern overlay"
-          className="w-full h-8 lg:h-10 object-cover"
+          className="w-full h-6 lg:h-12 object-cover"
         />
       </div>
 
@@ -86,7 +86,7 @@ export default function HeroSection() {
         {/* LEFT COLUMN: Text Content and CTAs */}
         <div
           ref={textRef}
-          className="lg:pr-10 text-center lg:text-left opacity-0 transform translate-y-8 transition-all duration-700 ease-out"
+          className="lg:pr-10 text-start lg:text-left opacity-0 transform translate-y-8 transition-all duration-700 ease-out"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter mb-4 sm:mb-6 text-primary-dark">
             The <span className="text-highlight-green">best</span> fundraising{" "}
