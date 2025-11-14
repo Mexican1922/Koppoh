@@ -1,25 +1,23 @@
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import smartMatchMockup from "/Images/smart-connect.svg";
 import guidedFundraiseMockup from "/Images/guided-fundraise.svg";
-import CirclePattern from "/Images/bg-circles.png";
 
 export default function FeaturesSection() {
   return (
     <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10">
-        <h2 className="text-[40px] lg:text-5xl font-extrabold mb-4 text-center text-primary-dark">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-center text-primary-dark">
           Secure the funding you need!
         </h2>
-        <p className="text-[1.25rem] text-center text-primary-dark max-w-2xl mx-auto">
+        <p className="text-lg sm:text-xl text-center text-primary-dark max-w-2xl mx-auto">
           We streamline your fundraising journey with products and services designed to ensure the success of your business.
         </p>
       </div>
 
-      {/* Circular Pattern Background - Fixed */}
+      {/* Circular Pattern Background - Hidden on small screens, visible on medium+ */}
       <div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-cover bg-no-repeat bg-center opacity-15 -z-10"
-        style={{ backgroundImage: `url(${CirclePattern})` }}
+        className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-screen h-[1200px] bg-cover bg-center opacity-80 z-10 bg-[url('/Images/bg-circles.png')]"
       ></div>
 
       {/* Content */}

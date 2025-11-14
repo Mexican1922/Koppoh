@@ -1,4 +1,5 @@
 import { PlayCircle } from "lucide-react";
+import { useEffect, useRef } from "react";
 import heroBg from "/Images/hero-bg.svg";
 import stripPattern from "/Images/strip-pattern.svg";
 import mainMockup from "/Images/main-image.png";
@@ -7,8 +8,63 @@ import cardMiddleRight from "/Images/middle-right.png";
 import cardBottomLeft from "/Images/bottom-left.png";
 
 export default function HeroSection() {
+  const sectionRef = useRef(null);
+  const textRef = useRef(null);
+  const mainImageRef = useRef(null);
+  const floatingCardsRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate text content
+            if (textRef.current) {
+              textRef.current.style.opacity = "1";
+              textRef.current.style.transform = "translateY(0)";
+            }
+
+            // Animate main image with slight delay
+            if (mainImageRef.current) {
+              setTimeout(() => {
+                mainImageRef.current.style.opacity = "1";
+                mainImageRef.current.style.transform = "translateY(0) scale(1)";
+              }, 200);
+            }
+
+            // Animate floating cards with staggered delay
+            floatingCardsRef.current.forEach((card, index) => {
+              if (card) {
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0) scale(1)";
+                }, 400 + (index * 150)); // Stagger the animations
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addFloatingCardRef = (el) => {
+    if (el && !floatingCardsRef.current.includes(el)) {
+      floatingCardsRef.current.push(el);
+    }
+  };
+
   return (
-    <section className="pt-16 pb-16 lg:pt-32 lg:pb-20 relative overflow-hidden bg-background text-foreground">
+    <section
+      ref={sectionRef}
+      className="pt-16 pb-16 lg:pt-32 lg:pb-20 relative overflow-hidden bg-background text-foreground"
+    >
       {/* Background Images */}
       <div className="absolute inset-0 -z-10">
         <img
@@ -22,13 +78,16 @@ export default function HeroSection() {
         <img
           src={stripPattern}
           alt="Strip pattern overlay"
-          className="w-full h-10 lg:h-12 object-cover"
+          className="w-full h-8 lg:h-10 object-cover"
         />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         {/* LEFT COLUMN: Text Content and CTAs */}
-        <div className="lg:pr-10 text-center lg:text-left">
+        <div
+          ref={textRef}
+          className="lg:pr-10 text-center lg:text-left opacity-0 transform translate-y-8 transition-all duration-700 ease-out"
+        >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter mb-4 sm:mb-6 text-primary-dark">
             The <span className="text-highlight-green">best</span> fundraising{" "}
             platform in <span className="text-highlight-green">Africa</span>
@@ -60,7 +119,10 @@ export default function HeroSection() {
         <div className="relative w-full flex justify-center lg:justify-end">
           <div className="relative w-[80%] max-w-[500px] sm:max-w-[640px] lg:max-w-none aspect-[4/3] lg:aspect-[16/10]">
             {/* Main Large Mockup */}
-            <div className="absolute inset-0 overflow-hidden p-2 sm:p-4 flex items-center justify-center">
+            <div
+              ref={mainImageRef}
+              className="absolute inset-0 overflow-hidden p-2 sm:p-4 flex items-center justify-center opacity-0 transform translate-y-8 scale-95 transition-all duration-700 ease-out delay-200"
+            >
               <img
                 src={mainMockup}
                 alt="Koppoh App Dashboard"
@@ -70,12 +132,14 @@ export default function HeroSection() {
 
             {/* Floating Mockup Card - Top Left */}
             <div
+              ref={addFloatingCardRef}
               className="
                 absolute
                 top-10 sm:top-16 lg:top-12
                 left-[-6%] lg:left-[-6%]
                 z-30
                 w-40 sm:w-60 lg:w-[260px]
+                opacity-0 transform translate-y-4 scale-95 transition-all duration-600 ease-out
               "
             >
               <div className="rounded-lg overflow-hidden p-1 sm:p-2 flex items-center justify-center h-20 sm:h-24">
@@ -89,6 +153,7 @@ export default function HeroSection() {
 
             {/* Floating Mockup Card - Middle Right */}
             <div
+              ref={addFloatingCardRef}
               className="
                 absolute
                 top-[33%]
@@ -96,6 +161,7 @@ export default function HeroSection() {
                 right-[-6%] lg:right-[-6%]
                 z-30
                 w-40 sm:w-60 lg:w-[260px]
+                opacity-0 transform translate-y-4 scale-95 transition-all duration-600 ease-out
               "
             >
               <div className="rounded-xl overflow-hidden p-1 sm:p-2 flex items-center justify-center h-20 sm:h-24">
@@ -109,12 +175,14 @@ export default function HeroSection() {
 
             {/* Floating Mockup Card - Bottom Left */}
             <div
+              ref={addFloatingCardRef}
               className="
                 absolute
                 bottom-[-1%] sm:bottom-5 lg:bottom-[-2%]
                 left-1/8 lg:left-1/6
                 z-10
                 w-40 sm:w-60 lg:w-[260px]
+                opacity-0 transform translate-y-4 scale-95 transition-all duration-600 ease-out
               "
             >
               <div className="rounded-xl overflow-hidden p-1 sm:p-2 flex items-center justify-center h-20 sm:h-24">
