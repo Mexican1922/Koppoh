@@ -135,7 +135,7 @@ export default function HeroSection() {
               ref={addFloatingCardRef}
               className="
                 absolute
-                top-14 sm:top-16 lg:top-16
+                top-16 sm:top-16 lg:top-16
                 left-[-6%] lg:left-[-6%]
                 z-30
                 w-40 sm:w-60 lg:w-[260px]
@@ -178,7 +178,7 @@ export default function HeroSection() {
               ref={addFloatingCardRef}
               className="
                 absolute
-                bottom-[-8%] sm:bottom-5 lg:bottom-[-8%]
+                bottom-[-6%] sm:bottom-5 lg:bottom-[-8%]
                 left-1/8 lg:left-1/6
                 z-10
                 w-40 sm:w-60 lg:w-[260px]
